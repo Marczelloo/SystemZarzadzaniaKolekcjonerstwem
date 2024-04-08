@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SystemZarzadzaniaKolekcjonerstwem.Controls.CollectionElementInfoRow"
+             x:Name="this">
+    <VerticalStackLayout
+        BindingContext="{x:Reference this}">
+        <Label Text="{Binding InfoName, FallbackValue='Info row name'}" FontSize="Medium" TextColor="{DynamicResource textColor}"/>
+        <HorizontalStackLayout Spacing="10">
+            <Border
+            StrokeThickness="2"
+            Stroke="{DynamicResource secondaryColor}"
+            WidthRequest="300" >
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+                <Entry x:Name="ElementName" Text="{Binding InfoValue}" TextColor="{DynamicResource textColor}" BackgroundColor="{DynamicResource primaryColor}" TextChanged="InfoValueEntry_TextChanged" />
+            </Border>
+            <Button Text="-" TextColor="{DynamicResource textColor}" FontAttributes="Bold" FontSize="Medium" BackgroundColor="{DynamicResource secondaryColor}" BorderColor="{DynamicResource secondaryColor}" BorderWidth="2" CornerRadius="10" WidthRequest="40" HeightRequest="40" Clicked="RemoveInfoRow_Clicked" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+    
+</ContentView>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SystemZarzadzaniaKolekcjonerstwem.Pages.AddCollectionPage"
+             BackgroundColor="{DynamicResource backgroundColor}">
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="Add collection" TextColor="{DynamicResource textColor}" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Margin="20,20,20,80"/>
+        <Border
+            Padding="25"
+            WidthRequest="250"
+            BackgroundColor="{DynamicResource primaryColor}"
+            >
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20" />
+            </Border.StrokeShape>
+            <VerticalStackLayout HorizontalOptions="Center" Spacing="20" VerticalOptions="FillAndExpand">
+                <Label Text="Add Collection" FontSize="Title" TextColor="{DynamicResource textColor}" FontAttributes="Bold" Margin="0,0,0,20" />
+                <Border
+                    StrokeThickness="2"
+                    Stroke="{DynamicResource secondaryColor}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <Entry x:Name="CollectionNameEntry" TextColor="{DynamicResource textColor}" BackgroundColor="{DynamicResource primaryColor}" />
+                </Border>
+                <Image x:Name="elementImage" WidthRequest="100" HeightRequest="100" />
+                <Label x:Name="imageLabel" Text="No selected image" FontSize="Body" TextColor="{DynamicResource textColor}" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Button Text="Select Image" Clicked="SelectImage_Clicked" BackgroundColor="{DynamicResource secondaryColor}" TextColor="{DynamicResource textColor}" />
+                <Button x:Name="addButton" Text="Add Collection" Clicked="AddCollection_Clicked" BackgroundColor="{DynamicResource secondaryColor}" TextColor="{DynamicResource textColor}" Margin="0,20,0,0" FontAttributes="Bold"/>
+            </VerticalStackLayout>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>

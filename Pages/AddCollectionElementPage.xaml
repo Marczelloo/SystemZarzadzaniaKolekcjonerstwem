@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SystemZarzadzaniaKolekcjonerstwem.Pages.AddCollectionElementPage"
+             Background="{DynamicResource backgroundColor}">
+    <ScrollView Orientation="Vertical" Padding="20">
+        <VerticalStackLayout>
+            <Label Text="Add Collection Element" FontSize="Title" TextColor="{DynamicResource textColor}" FontAttributes="Bold" Margin="0,0,0,20" HorizontalOptions="Center"/>
+            <Border
+                BackgroundColor="{DynamicResource primaryColor}"
+                WidthRequest="400"
+            >
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Padding="20">
+                    <Label Text="Name" TextColor="{DynamicResource textColor}" FontSize="Medium" Margin="0,0,0,5"/>
+                    <Border
+                        StrokeThickness="2"
+                        Stroke="{DynamicResource secondaryColor}"
+                        Margin="0,0,0,10">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+                        <Entry x:Name="NameEntry" TextColor="{DynamicResource textColor}" BackgroundColor="{DynamicResource primaryColor}" />
+                    </Border>
+                    <Label Text="Description" TextColor="{DynamicResource textColor}" FontSize="Medium" Margin="0,0,0,5"/>
+                    <Border
+                        StrokeThickness="2"
+                        Stroke="{DynamicResource secondaryColor}"
+                        Margin="0,0,0,10">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+                        <Entry x:Name="DescriptionEntry" TextColor="{DynamicResource textColor}" BackgroundColor="{DynamicResource primaryColor}" />
+                    </Border>
+                    <Label Text="Value" TextColor="{DynamicResource textColor}" FontSize="Medium" Margin="0,0,0,5"/>
+                    <Border
+                        StrokeThickness="2"
+                        Stroke="{DynamicResource secondaryColor}"
+                        Margin="0,0,0,10">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+                        <Entry x:Name="ValueEntry" TextColor="{DynamicResource textColor}" BackgroundColor="{DynamicResource primaryColor}" />
+                    </Border>
+                    <Label Text="Date" TextColor="{DynamicResource textColor}" FontSize="Medium" Margin="0,0,0,5"/>
+                    <Border
+                        StrokeThickness="2"
+                        Stroke="{DynamicResource secondaryColor}"
+                        Margin="0,0,0,10">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+                        <DatePicker HorizontalOptions="FillAndExpand" WidthRequest="350" x:Name="DatePicker" TextColor="{DynamicResource textColor}" BackgroundColor="{DynamicResource primaryColor}" />
+                    </Border>
+                    <HorizontalStackLayout Margin="0,0,0,10">
+                        <Label Text="Element sold: " FontSize="Medium" TextColor="{DynamicResource textColor}" VerticalOptions="Center" />
+                        <CheckBox x:Name="SoldCheckBox" WidthRequest="35" HeightRequest="35" Color="{DynamicResource secondaryColor}" VerticalOptions="Center" Margin="185,0,0,0" Scale="1.35"/>
+                    </HorizontalStackLayout>
+
+                    <Label Text="Image" TextColor="{DynamicResource textColor}" FontSize="Medium" Margin="0,0,0,5"/>
+                    <Image x:Name="ElementImage" WidthRequest="100" HeightRequest="100" />
+                    <Label x:Name="ElementImageText" Text="No selected image" TextColor="{DynamicResource textColor}" HorizontalOptions="Center" Margin="0,0,0,5"/>
+                    <Button Text="Select image" BackgroundColor="{DynamicResource secondaryColor}" TextColor="{DynamicResource textColor}" Clicked="SelectImage_Clicked" />
+
+                    <Label Text="Add new informations" TextColor="{DynamicResource textColor}" FontSize="Medium" Margin="0,15,0,5"/>
+                    <HorizontalStackLayout x:Name="AddElementInfo" Spacing="10" >
+                        <Border
+                         StrokeThickness="2"
+                         Stroke="{DynamicResource accentColor}"
+                         WidthRequest="300"   
+                         >
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+                            <Entry x:Name="NewInfoRowNameEntry" TextColor="{DynamicResource textColor}" BackgroundColor="{DynamicResource primaryColor}" Placeholder="Info row name"/>
+                        </Border>
+                        <Button Text="+" TextColor="{DynamicResource textColor}" FontAttributes="Bold" FontSize="Medium" BackgroundColor="{DynamicResource accentColor}" BorderColor="{DynamicResource accentColor}" BorderWidth="2" CornerRadius="10" WidthRequest="40" HeightRequest="40" Clicked="AddInfoRow_Clicked" />
+                    </HorizontalStackLayout>
+                    <Label Text="Additional information" TextColor="{DynamicResource textColor}" FontSize="Medium" Margin="0,10,0,5"/>
+                    <VerticalStackLayout x:Name="ElementInfoEntryRows">
+
+                    </VerticalStackLayout>
+                    <Button Text="Add" BackgroundColor="{DynamicResource secondaryColor}" TextColor="{DynamicResource textColor}" Clicked="AddElement_Clicked" Margin="0,40,0,0" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

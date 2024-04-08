@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SystemZarzadzaniaKolekcjonerstwem.Controls.CollectionElement"
+             x:Name="this">
+    <VerticalStackLayout Margin="10" x:Name="CollectionElementCard">
+        <Border 
+            BackgroundColor="{DynamicResource primaryColor}"
+            StrokeThickness="4"
+            Stroke="{DynamicResource primaryColor}"
+            WidthRequest="250"
+            HeightRequest="350"
+            BindingContext="{x:Reference this}"
+            >   
+            <FlyoutBase.ContextFlyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem Text="Edit" Clicked="Edit_Clicked"/>
+                    <MenuFlyoutItem Text="Delete" Clicked="Delete_Clicked"/>
+                </MenuFlyout>
+            </FlyoutBase.ContextFlyout>
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="30" />
+            </Border.StrokeShape>
+            <StackLayout WidthRequest="250" 
+                 HeightRequest="350" 
+                 Padding="10"
+                 Orientation="Vertical" 
+                 HorizontalOptions="Center" 
+                 >
+                <Label Text="{Binding ElementName, FallbackValue='Element name'}" 
+                   TextColor="{DynamicResource textColor}" 
+                   FontSize="Title" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center"/>
+                <Border Stroke="{DynamicResource accentColor}" 
+                    StrokeThickness="2" 
+                    Margin="0,20,0,20">
+                    <Image Source="{Binding ElementImage, FallbackValue=''}" />
+                </Border>
+                <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+                    <VerticalStackLayout x:Name="InfoLayout" HeightRequest="150">
+                        <HorizontalStackLayout>
+                            <Label Text="Description: " 
+                               TextColor="{DynamicResource textColor}" 
+                               FontSize="Body" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Start"
+                               Margin="0,0,10,0"/>
+                            <Label Text="{Binding ElementDescription, FallbackValue='Element description'}" 
+                               TextColor="{DynamicResource textColor}" 
+                               FontSize="Body" 
+                               HorizontalOptions="Start"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <Label Text="Value: " 
+                               TextColor="{DynamicResource textColor}" 
+                               FontSize="Body" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Start"
+                               Margin="0,0,10,0"/>
+                            <Label Text="{Binding ElementValueText, FallbackValue='Element value'}" 
+                               TextColor="{DynamicResource textColor}" 
+                               FontSize="Body" 
+                               HorizontalOptions="Start"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <Label Text="Date: " 
+                               TextColor="{DynamicResource textColor}" 
+                               FontSize="Body" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Start"
+                               Margin="0,0,10,0"/>
+                            <Label Text="{Binding ElementDate, FallbackValue='Element date'}" 
+                               TextColor="{DynamicResource textColor}" 
+                               FontSize="Body" 
+                               HorizontalOptions="Start"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <Label Text="Status: "
+                               TextColor="{DynamicResource textColor}" 
+                               FontSize="Body" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Start"
+                               Margin="0,0,10,0"/>
+                            <Label Text="{Binding ElementSoldText, FallbackValue='Element sold'}"
+                               TextColor="{DynamicResource textColor}"
+                               FontSize="Body" 
+                               HorizontalOptions="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </StackLayout>
+        </Border>
+    </VerticalStackLayout>
+</ContentView>

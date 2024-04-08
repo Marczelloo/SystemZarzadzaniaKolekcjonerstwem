@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SystemZarzadzaniaKolekcjonerstwem.Controls.CollectionCard"
+             x:Name="this"
+             >
+    <Border 
+        BackgroundColor="{DynamicResource primaryColor}"
+        StrokeThickness="4"
+        Stroke="{DynamicResource primaryColor}"
+        WidthRequest="250"
+        HeightRequest="350"
+        BindingContext="{x:Reference this}"
+        >
+        <FlyoutBase.ContextFlyout>
+            <MenuFlyout>
+                <MenuFlyoutItem Text="Export" Clicked="Export_Clicked" />
+                <MenuFlyoutItem Text="Edit" Clicked="Edit_Clicked"/>
+                <MenuFlyoutItem Text="Delete" Clicked="Delete_Clicked"/>
+            </MenuFlyout>
+        </FlyoutBase.ContextFlyout>
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="30" />
+        </Border.StrokeShape>
+        <Border.GestureRecognizers>
+            <TapGestureRecognizer Tapped="CollectionCard_Tapped" />
+        </Border.GestureRecognizers>
+        <StackLayout WidthRequest="250" 
+                     HeightRequest="350" 
+                     Padding="10"
+                     Orientation="Vertical" 
+                     HorizontalOptions="Center" 
+                     >
+            <Label Text="{Binding CollectionName, FallbackValue='Collection name'}" 
+                   TextColor="{DynamicResource textColor}" 
+                   FontSize="Title" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="StartAndExpand"/>
+            <Border Stroke="{DynamicResource accentColor}" 
+                    StrokeThickness="2" 
+                    Margin="0,20,0,20" 
+                    VerticalOptions="Center"
+                    MaximumHeightRequest="200" 
+                    MaximumWidthRequest="200">
+                <Image Source="{Binding CollectionImage, FallbackValue=''}"/>
+            </Border>
+            <Label Text="{Binding CollectionElementsSizeText, FallbackValue='Collection size: 0'}" 
+                   TextColor="{DynamicResource textColor}" 
+                   FontSize="Medium" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </Border>
+</ContentView>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SystemZarzadzaniaKolekcjonerstwem.Pages.CollectionPage"
+             Background="{DynamicResource backgroundColor}">
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="Collections">
+            <MenuFlyoutItem Text="Generate summary" Clicked="GenerateSummary_Clicked"/>
+            <MenuFlyoutItem Text="Export elements" Clicked="ExportElements_Clicked" />
+            <MenuFlyoutItem Text="Import elements" Clicked="ImportElements_Clicked" />
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+    <VerticalStackLayout>
+        <Label Text="Collection Page" TextColor="{DynamicResource textColor}" FontSize="Title" FontAttributes="Bold" Margin="0,20,0,80" HorizontalOptions="Center"/>
+        <ScrollView Orientation="Horizontal" Padding="20" VerticalOptions="FillAndExpand">
+            <FlexLayout x:Name="elementsLayout" Direction="Row" Wrap="NoWrap">
+                <Border 
+                    x:Name="AddElementCard"
+                    StrokeThickness="4"
+                    Stroke="{DynamicResource primaryColor}"
+                    Background="Transparent"
+                    WidthRequest="250"
+                    HeightRequest="350"
+                    Margin="0,10"
+                    Padding="10">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="30" />
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AddElement_Clicked" />
+                    </Border.GestureRecognizers>
+                    <StackLayout Orientation="Vertical" VerticalOptions="Fill" HorizontalOptions="Center" Padding="10">
+                        <Label TextColor="{DynamicResource textColor}" Text="Add element" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" Margin="0,0,0,100"/>
+                        <Frame
+                        BackgroundColor="{DynamicResource primaryColor}"
+                        CornerRadius="50"
+                        Padding="10"
+                        WidthRequest="70"
+                        HeightRequest="70"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                            <Label Text="+" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" TextColor="White" FontAttributes="Bold" />
+                        </Frame>
+                    </StackLayout>
+                </Border>
+            </FlexLayout>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>
